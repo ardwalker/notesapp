@@ -1,0 +1,71 @@
+
+* { 
+  margin: 0; 
+  padding: 0; 
+  font-family: 'Lato', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: row;
+  border: 10px solid goldenrod;
+  height: 100vh;
+}
+
+.box {
+  /* width: 50%; */
+  border: 1px solid grey;
+  flex: 1;
+}
+
+.note-list {
+  background: #e67e22;
+}
+
+
+
+/* Note detail */
+
+.note-detail-container {
+  text-align: left;
+}
+
+section.note-detail-title {
+  background: #d1d2d4;  
+  padding: 5px;
+}
+
+section.note-detail-title > time {
+  font-size: 8pt;
+}
+
+
+/* Note list */
+
+.note-list-container > ul {
+  list-style-type: none;
+  text-align: left;
+  padding: 5px;
+}
+
+.note-list-container > ul > li {
+  background: #d1d2d4;
+  margin: 1px 0 1px 0;
+  cursor: pointer;
+  border-bottom: 1px dashed #ccc;
+}
+
+.note-list-container > ul > li:hover {
+  background: grey;
+}
+
+.list-item-content > p {
+  font-size: 0.8em;
+}
