@@ -9,19 +9,20 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  /* background: rgb(15,12,41);
+  background: linear-gradient(90deg, rgba(15,12,41,1) 0%, rgba(48,43,99,1) 50%, rgba(48,43,99,1) 100%); */
 }
 
 
 .container {
   display: flex;
   flex-direction: row;
-  border: 10px solid goldenrod;
   height: 100vh;
 }
 
 .box {
   /* width: 50%; */
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
   flex: 1;
 }
 
