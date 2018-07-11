@@ -1,6 +1,6 @@
 
 import React from 'react';
-import NoteListItem from './NoteListItem';
+import NoteList from './NoteList';
 import NoteDetailItem from './NoteDetailItem';
 import SplitPane from 'react-split-pane';
 import NoteProvider from './NoteProvider';
@@ -28,22 +28,12 @@ class App extends React.Component {
               <h1 className="App-title">Notes</h1>
             </header>
 
-            <div className="container">
-
+            <section className="container">
+              
               <SplitPane split="vertical" minSize={150} defaultSize={300} primary='first'>
+                
                 <div className="box note-list-container">
-                  <div>
-                    All Notes
-                  </div>
-                  <ul>
-                    {
-                      this.state.repos.map( (note, i) => {
-                        return (
-                          <NoteListItem note={note} index={i} key={i}/>
-                        )
-                      })
-                    }
-                  </ul>
+                  <NoteList />
                 </div>
 
                 <div className="box note-detail-container">
@@ -52,7 +42,7 @@ class App extends React.Component {
 
               </SplitPane>
 
-            </div>         
+            </section>         
             
         </div>
       </NoteProvider>

@@ -1,9 +1,12 @@
 
 import React from 'react';
 import NoteContext from '../data/NoteContext';
+var api = require('../utils/api.js');
+
 
 class NoteProvider extends React.Component {
   state = {
+    noteList: api.fetchNotes(),
     note: {title: '', summary: '', lastSaved: ''},
   }
   

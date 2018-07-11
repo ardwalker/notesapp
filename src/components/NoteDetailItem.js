@@ -2,13 +2,7 @@
 import React from 'react';
 import NoteContext from '../data/NoteContext';
 
-// import NoteStore from '../data/NoteStore'
-
 class NoteDetailItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
     
   render() {
     console.log('render, state: ', this.state);

@@ -1,0 +1,11 @@
+
+- [x] splitter window
+- [x] list of notes
+- [x] note details
+- [x] change selected note in detail view 
+- [ ] note search
+- [ ] note filters
+- [ ] add a note 
+- [ ] edit a note 
+- [ ] delete a note
+- [ ] styling
