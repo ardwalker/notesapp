@@ -1,4 +1,3 @@
-'use strict';
 
 import AppView from '../components/App';
 import {Container} from 'flux/utils';
