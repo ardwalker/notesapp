@@ -24,8 +24,8 @@ class App extends React.Component {
       <NoteProvider>
         <div className="App">
 
-            <header className="App-header">
-              <h1 className="App-title">Notes</h1>
+            <header className="app-header">
+              <h1 className="app-title">Notes</h1>
             </header>
 
             <section className="container">

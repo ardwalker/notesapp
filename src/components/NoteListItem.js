@@ -8,18 +8,18 @@ class NoteListItem extends React.Component {
   render() {
     return (
       <NoteContext.Consumer>
-        
+  
         {(context) => (          
-          <li className="list-item" data-index={this.props.note.index} onClick={() => context.currentNote(this.props.note)}>
+          <li className="list-item" data-index={this.props.index} onClick={() => context.currentNote(this.props.note)}>
             <div className="list-item-content">
               <h3>{this.props.note.title}</h3>
               <p>{this.props.note.summary}</p>
             </div>
           </li>	
         )}
-
+  
       </NoteContext.Consumer>
-    );
+    )
   }
 }
 

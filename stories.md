@@ -9,3 +9,4 @@
 - [ ] edit a note 
 - [ ] delete a note
 - [ ] styling
+- [ ] learn jest test framework

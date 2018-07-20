@@ -5,10 +5,14 @@ var api = require('../utils/api.js');
 
 
 class NoteProvider extends React.Component {
-  state = {
-    noteList: api.fetchNotes(),
-    note: {title: '', summary: '', lastSaved: ''},
+  constructor(props) {
+    super(props);
+    this.state = {
+      noteList: api.fetchNotes(),
+      note: {title: '', summary: '', lastSaved: ''},
+    }    
   }
+  
   
   currentNote(n) {
     this.setState({note: n})
