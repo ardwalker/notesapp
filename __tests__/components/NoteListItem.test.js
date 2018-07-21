@@ -28,8 +28,8 @@ describe('NoteListItem ', () => {
     
     // enzyme wrapper.find does work with react context API
     const outer = shallow(<NoteListItem {...props}/>);
-    const Children = outer.props().children;
-    const wrapper = shallow(<Children />);
+    const NoteListItemComponent = outer.props().children;
+    const wrapper = shallow(<NoteListItemComponent />);
     expect(wrapper.find('p').at(0).text()).toContain('Summary...');
   });
 
