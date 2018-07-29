@@ -1,24 +1,21 @@
 import React from 'react';
-import Dispatcher from '../data/NoteDispatcher';
-import ActionTypes from '../data/NoteActionTypes';
-import NoteContext from '../data/NoteContext';
+import NoteActions from '../data/NoteActions';
 
 class NoteListItem extends React.Component {
 
+  select(note) {
+    console.log('NoteListItem::select');
+    NoteActions.select(note);
+  }
+
   render() {
     return (
-      <NoteContext.Consumer>
-  
-        {(context) => (          
-          <li className="list-item" data-index={this.props.index} onClick={() => context.currentNote(this.props.note)}>
-            <div className="list-item-content">
-              <h3>{this.props.note.title}</h3>
-              <p>{this.props.note.summary}</p>
-            </div>
-          </li>	
-        )}
-  
-      </NoteContext.Consumer>
+      <li className="list-item" data-index={this.props.index} onClick={() => this.select(this.props.note)}>
+        <div className="list-item-content">
+          <h3>{this.props.note.title}</h3>
+          <p>{this.props.note.summary}</p>
+        </div>
+      </li>	
     )
   }
 }

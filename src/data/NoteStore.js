@@ -1,37 +1,48 @@
 
-import {EventEmitter} from "events";
 import NoteActionTypes from './NoteActionTypes';
 import NoteDispatcher from './NoteDispatcher';
+import {EventEmitter} from 'events';
 
 class NoteStore extends EventEmitter {
   constructor() {
-    console.log('notestore constructor');
     super(NoteDispatcher);
+    this.dispatchToken = NoteDispatcher.register(this.dispatcherCallback.bind(this));
   }
 
-  getInitialState() {
-    return '';
+  onSelectNote(note) {
+    console.log('NoteStore::onSelectNote');
+    this.note = note; 
+  }
+  
+  getNote() {
+    return this.note;
+  }  
+
+  addEventListener(eventName, callback) {
+    this.on(eventName, callback);
   }
 
-  handleActions(action) {
+  removeEventListener(eventName, callback) {
+    this.removeListener(eventName, callback);
+  }
+
+  dispatcherCallback(action) {
     switch (action.type) {
-      case NoteActionTypes.SELECT_NOTE:
-        console.log('Select note');
-        console.log(action);
-        this.emit('noteSelected', action);
-        return action;
-
-      // case TodoActionTypes.UPDATE_DRAFT:
-      //   return action.text;
-
+      case NoteActionTypes.SELECT_NOTE: {
+        this.onSelectNote(action.note);
+        break;
+      }
       default:
-        return action;
+        break;
     }
-  }
+    this.emit(action.type);
+    return true;
+  }  
+
 }
 
-const noteStore = new NoteStore();
-NoteDispatcher.register(noteStore.handleActions.bind(noteStore));
-export default noteStore;
+export default new NoteStore();
+
+
 
 
