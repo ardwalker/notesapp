@@ -1,9 +1,15 @@
 
 import React from 'react';
-import NoteListItem from './NoteListItem'
-import NoteContext from '../data/NoteContext'
+import NoteListItem from './NoteListItem';
+import NoteStore from '../data/NoteStore';
 
 class NoteList extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      notes: NoteStore.allNotes()
+    }
+  }
 
   render() {
     return (
@@ -12,15 +18,13 @@ class NoteList extends React.Component {
           All Notes
         </div>
         <ul>
-          <NoteContext.Consumer>
-             {(context) => (    
-              context.state.noteList.map( (note, i) => {
-                return (
-                  <NoteListItem note={note} index={i} key={i}/>
-                )
-              })
-            )}
-          </NoteContext.Consumer>
+          {
+            this.state.notes.map( (note, i) => {
+              return (
+                <NoteListItem note={note} index={i} key={i}/>
+              )
+            })
+          }
         </ul>
       </React.Fragment>
     )

@@ -49,6 +49,9 @@ section.note-detail-title > time {
 
 
 /* Note list */
+.Pane1 {
+  background-color: lightgray;
+}
 
 .note-list-container > ul {
   list-style-type: none;

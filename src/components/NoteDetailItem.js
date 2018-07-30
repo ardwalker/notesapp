@@ -13,7 +13,6 @@ class NoteDetailItem extends React.Component {
   }
   
   componentDidMount() { 
-    console.log('NoteDetailItem::componentDidMount');
     NoteStore.addEventListener(NoteActionTypes.SELECT_NOTE, this.noteChanged); 
   }
   
@@ -28,8 +27,6 @@ class NoteDetailItem extends React.Component {
   }
     
   render() {
-    console.log('NoteDetailItem::render');
-    
     return (
       <article className="note-detail">
         <section className="note-detail-title">

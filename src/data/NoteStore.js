@@ -1,6 +1,7 @@
 
 import NoteActionTypes from './NoteActionTypes';
 import NoteDispatcher from './NoteDispatcher';
+import api from '../utils/api';
 import {EventEmitter} from 'events';
 
 class NoteStore extends EventEmitter {
@@ -17,6 +18,10 @@ class NoteStore extends EventEmitter {
   getNote() {
     return this.note;
   }  
+  
+  allNotes() {
+    return api.fetchNotes();
+  }
 
   addEventListener(eventName, callback) {
     this.on(eventName, callback);

@@ -3,7 +3,6 @@ import React from 'react';
 import NoteList from './NoteList';
 import NoteDetailItem from './NoteDetailItem';
 import SplitPane from 'react-split-pane';
-import NoteProvider from './NoteProvider';
 
 import '../App.css';
 
@@ -21,31 +20,29 @@ class App extends React.Component {
 
   render() {
     return (
-      <NoteProvider>
-        <div className="App">
+      <div className="App">
 
-            <header className="app-header">
-              <h1 className="app-title">Notes</h1>
-            </header>
+          <header className="app-header">
+            <h1 className="app-title">Notes</h1>
+          </header>
 
-            <section className="container">
-              
-              <SplitPane split="vertical" minSize={150} defaultSize={300} primary='first'>
-                
-                <div className="box note-list-container">
-                  <NoteList />
-                </div>
-
-                <div className="box note-detail-container">
-                  <NoteDetailItem />
-                </div>
-
-              </SplitPane>
-
-            </section>         
+          <section className="container">
             
-        </div>
-      </NoteProvider>
+            <SplitPane split="vertical" minSize={150} defaultSize={300} primary='first'>
+              
+              <div className="box note-list-container">
+                <NoteList />
+              </div>
+
+              <div className="box note-detail-container">
+                <NoteDetailItem />
+              </div>
+
+            </SplitPane>
+
+          </section>         
+          
+      </div>
     );
   }
 }
