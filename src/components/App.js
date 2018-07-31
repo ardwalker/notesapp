@@ -1,8 +1,11 @@
 
 import React from 'react';
-import NoteList from './NoteList';
-import NoteDetailItem from './NoteDetailItem';
-import SplitPane from 'react-split-pane';
+// import NoteList from './NoteList';
+// import NoteDetailItem from './NoteDetailItem';
+import NoteView from './NoteView';
+import AddNote from './AddNote';
+// import SplitPane from 'react-split-pane';
+import { Route } from 'react-router-dom';
 
 import '../App.css';
 
@@ -13,6 +16,7 @@ class App extends React.Component {
 
   constructor(props) {
 		super(props);
+    console.log('App constructor');
 		this.state = {
 			repos: api.fetchNotes()
 		}
@@ -21,27 +25,13 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <header className="app-header">
+          <h1 className="app-title"><span>Notes App</span></h1>
+        </header>
 
-          <header className="app-header">
-            <h1 className="app-title">Notes</h1>
-          </header>
-
-          <section className="container">
-            
-            <SplitPane split="vertical" minSize={150} defaultSize={300} primary='first'>
-              
-              <div className="box note-list-container">
-                <NoteList />
-              </div>
-
-              <div className="box note-detail-container">
-                <NoteDetailItem />
-              </div>
-
-            </SplitPane>
-
-          </section>         
-          
+        <Route path="/" exact component={NoteView}/>
+        <Route path="/add-note" component={AddNote}/>
+                  
       </div>
     );
   }

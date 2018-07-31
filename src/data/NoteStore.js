@@ -7,6 +7,10 @@ import {EventEmitter} from 'events';
 class NoteStore extends EventEmitter {
   constructor() {
     super(NoteDispatcher);
+    console.log('NoteStore constructor');
+    this.state = {
+      noteList: api.fetchNotes()
+    }
     this.dispatchToken = NoteDispatcher.register(this.dispatcherCallback.bind(this));
   }
 
@@ -15,12 +19,17 @@ class NoteStore extends EventEmitter {
     this.note = note; 
   }
   
+  addNote(note) {
+    console.log('NoteStore::addNote');
+    this.state.noteList.push(note);
+  }
+  
   getNote() {
     return this.note;
   }  
   
   allNotes() {
-    return api.fetchNotes();
+    return this.state.noteList; //api.fetchNotes();
   }
 
   addEventListener(eventName, callback) {

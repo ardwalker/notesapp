@@ -6,6 +6,7 @@ import NoteStore from '../data/NoteStore';
 class NoteList extends React.Component {
   constructor() {
     super();
+    console.log('NoteList constructor');
     this.state = {
       notes: NoteStore.allNotes()
     }
@@ -13,20 +14,23 @@ class NoteList extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div>
         <div>
-          All Notes
+          <h1>
+            <span>All Notes</span>
+          </h1>
+          <a href='/add-note'><span>Add Note</span></a>
         </div>
         <ul>
           {
-            this.state.notes.map( (note, i) => {
+            NoteStore.allNotes().map( (note, i) => {
               return (
                 <NoteListItem note={note} index={i} key={i}/>
               )
             })
           }
         </ul>
-      </React.Fragment>
+      </div>
     )
   }
 }

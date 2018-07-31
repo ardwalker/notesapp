@@ -38,12 +38,12 @@ body {
   text-align: left;
 }
 
-section.note-detail-title {
+.note-detail-title {
   background: #d1d2d4;  
   padding: 5px;
 }
 
-section.note-detail-title > time {
+.note-detail-title > time {
   font-size: 8pt;
 }
 
@@ -53,20 +53,20 @@ section.note-detail-title > time {
   background-color: lightgray;
 }
 
-.note-list-container > ul {
+.note-list-container > div > ul {
   list-style-type: none;
   text-align: left;
   padding: 5px;
 }
 
-.note-list-container > ul > li {
+.note-list-container > div > ul > li {
   background: #d1d2d4;
   margin: 1px 0 1px 0;
   cursor: pointer;
   border-bottom: 1px dashed #ccc;
 }
 
-.note-list-container > ul > li:hover {
+.note-list-container > div > ul > li:hover {
   background: grey;
 }
 
